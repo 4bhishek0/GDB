@@ -56,7 +56,7 @@ always executed for any gdb session by putting them in `~/.gdbinit`. You probabl
 intel` in there.
 
 Within gdb scripting, a very powerful construct is breakpoint commands. Consider the following gdb script:
-
+```
   start
   break *main+42
   commands
@@ -64,12 +64,12 @@ Within gdb scripting, a very powerful construct is breakpoint commands. Consider
     continue
   end
   continue
-
+```
 In this case, whenever we hit the instruction at `main+42`, we will output a particular local variable and then continue
 execution.
 
 Now consider a similar, but slightly more advanced script using some commands you haven't yet seen:
-
+```
   start
   break *main+42
   commands
@@ -79,7 +79,7 @@ Now consider a similar, but slightly more advanced script using some commands yo
     continue
   end
   continue
-
+```
 In this case, the `silent` indicates that we want gdb to not report that we have hit a breakpoint, to make the output a
 bit cleaner. Then we use the `set` command to define a variable within our gdb session, whose value is our local
 variable. Finally, we output the current value using a formatted string.
@@ -95,7 +95,7 @@ out $rdi. You can use `set *((uint64_t *) $rsp) = 0x1234` to set the first value
 Suppose your target is some networked application which reads from some socket on fd 42. Maybe it would be easier for
 the purposes of your analysis if the target instead read from stdin. You could achieve something like that with the
 following gdb script:
-
+```
   start
   catch syscall read
   commands
@@ -106,11 +106,11 @@ following gdb script:
     continue
   end
   continue
-
+```
 This example gdb script demonstrates how you can automatically break on system calls, and how you can use conditions
 within your commands to conditionally perform gdb commands
 
- gdb has FULL control over the target process. Under normal circumstances, gdb
+gdb has FULL control over the target process. Under normal circumstances, gdb
 running as your regular user cannot attach to a privileged process. This is why gdb isn't a massive security issue which
 would allow you to just immediately solve all the levels. Nevertheless, gdb is still an extremely powerful tool.
 
