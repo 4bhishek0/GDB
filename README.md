@@ -115,4 +115,4 @@ running as your regular user cannot attach to a privileged process. This is why 
 would allow you to just immediately solve all the levels. Nevertheless, gdb is still an extremely powerful tool.
 
 Running within this elevated instance of gdb gives you elevated control over the entire system. To clearly demonstrate
-this, see what happens when you run the command `call (void)win()`.
+this, see what happens when you run the command `call (void)win()`.(lets assume if win is accessed only by high privileged user)
