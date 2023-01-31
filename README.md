@@ -1,5 +1,7 @@
 # GDB
 
+> Taken notes from pwn.college embryogdb challenges.
+
 GDB is a very powerful dynamic analysis tool which you can use in order to understand the state of a program throughout
 its execution. You will become familiar with some of gdb's capabilities in this module.
 
